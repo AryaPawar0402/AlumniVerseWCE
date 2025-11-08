@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Check, CheckCheck, Clock, AlertCircle, Send, X, WifiOff } from 'lucide-react';
+import chatService from '../services/chatService';
 import './ChatComponent.css';
 
 const ChatComponent = ({ currentUserId, otherUserId, otherUserName, onClose }) => {
@@ -39,7 +41,7 @@ const ChatComponent = ({ currentUserId, otherUserId, otherUserName, onClose }) =
 
         // Step 1: Load conversation history
         console.log('📖 Loading conversation history...');
-        const history = await window.chatService.getConversation(currentUserId, otherUserId);
+        const history = await chatService.getConversation(currentUserId, otherUserId);
 
         if (isSubscribed) {
           console.log(`✅ Loaded ${history.length} messages`);
@@ -52,11 +54,11 @@ const ChatComponent = ({ currentUserId, otherUserId, otherUserName, onClose }) =
         }
 
         // Step 2: Mark messages as read
-        await window.chatService.markAsRead(otherUserId, currentUserId);
+        await chatService.markAsRead(otherUserId, currentUserId);
 
         // Step 3: Subscribe to real-time messages
         console.log('🔔 Subscribing to real-time messages...');
-        const subscribed = await window.chatService.subscribeToMessages(
+        const subscribed = await chatService.subscribeToMessages(
           currentUserId,
           handleNewMessage,
           token
@@ -116,7 +118,7 @@ const ChatComponent = ({ currentUserId, otherUserId, otherUserName, onClose }) =
 
       // Mark as read if from other user
       if (message.senderId === otherUserId) {
-        window.chatService.markAsRead(otherUserId, currentUserId);
+        chatService.markAsRead(otherUserId, currentUserId);
       }
     };
 
@@ -160,7 +162,7 @@ const ChatComponent = ({ currentUserId, otherUserId, otherUserName, onClose }) =
       }
 
       console.log('📤 Sending message...');
-      await window.chatService.sendMessage(
+      await chatService.sendMessage(
         currentUserId,
         otherUserId,
         content,
@@ -195,23 +197,91 @@ const ChatComponent = ({ currentUserId, otherUserId, otherUserName, onClose }) =
     }
   };
 
+  const formatDate = (timestamp) => {
+    try {
+      const date = new Date(timestamp);
+      const today = new Date();
+      const yesterday = new Date(today);
+      yesterday.setDate(yesterday.getDate() - 1);
+
+      if (date.toDateString() === today.toDateString()) {
+        return 'Today';
+      } else if (date.toDateString() === yesterday.toDateString()) {
+        return 'Yesterday';
+      } else {
+        return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      }
+    } catch {
+      return '';
+    }
+  };
+
+  const renderMessageStatus = (message) => {
+    if (message.senderId !== currentUserId) return null;
+
+    if (message.isTemp) {
+      return <Clock className="status-icon" size={14} />;
+    }
+
+    switch (message.status) {
+      case 'READ':
+        return <CheckCheck className="status-icon status-read" size={14} />;
+      case 'DELIVERED':
+        return <CheckCheck className="status-icon" size={14} />;
+      case 'SENT':
+        return <Check className="status-icon" size={14} />;
+      default:
+        return <Clock className="status-icon" size={14} />;
+    }
+  };
+
+  const groupMessagesByDate = () => {
+    const groups = {};
+
+    messages.forEach(msg => {
+      const date = formatDate(msg.timestamp);
+      if (!groups[date]) {
+        groups[date] = [];
+      }
+      groups[date].push(msg);
+    });
+
+    return groups;
+  };
+
   const retryConnection = () => {
     window.location.reload();
   };
+
+  const messageGroups = groupMessagesByDate();
 
   return (
     <div className="chat-component">
       {/* Header */}
       <div className="chat-header">
-        <div className="chat-user-info">
-          <h3>{otherUserName}</h3>
-          <div className={`connection-status ${connected ? 'connected' : 'disconnected'}`}>
-            <div className="status-dot"></div>
-            {connected ? 'Connected' : 'Disconnected'}
+        <div className="chat-header-content">
+          <div className="chat-user-avatar">
+            {otherUserName.charAt(0).toUpperCase()}
+          </div>
+          <div className="chat-user-info">
+            <h3>{otherUserName}</h3>
+            <div className={`connection-status ${connected ? 'connected' : 'disconnected'}`}>
+              {connected ? (
+                <>
+                  <span className="status-dot"></span>
+                  <span>online</span>
+                </>
+              ) : (
+                <>
+                  <WifiOff size={12} />
+                  <span>connecting...</span>
+                </>
+              )}
+            </div>
           </div>
         </div>
         <button className="close-chat-btn" onClick={onClose} aria-label="Close chat">
-          ✕
+          <X size={20} />
         </button>
       </div>
 
@@ -224,31 +294,43 @@ const ChatComponent = ({ currentUserId, otherUserId, otherUserName, onClose }) =
           </div>
         ) : error && messages.length === 0 ? (
           <div className="chat-error">
+            <AlertCircle size={48} />
             <p>{error}</p>
             <button onClick={retryConnection} className="retry-btn">
-              Retry
+              Retry Connection
             </button>
           </div>
         ) : messages.length === 0 ? (
           <div className="no-messages">
-            <p>No messages yet. Start the conversation!</p>
+            <div className="no-messages-icon">💬</div>
+            <p>No messages yet</p>
+            <span>Send a message to start the conversation</span>
           </div>
         ) : (
           <>
-            {messages.map((msg) => (
-              <div
-                key={msg.id}
-                className={`message ${msg.senderId === currentUserId ? 'sent' : 'received'} ${
-                  msg.isTemp ? 'temp-message' : ''
-                }`}
-              >
-                <div className="message-content">
-                  <p>{msg.content}</p>
-                  <span className="message-time">
-                    {formatTime(msg.timestamp)}
-                    {msg.isTemp && ' ⏳'}
-                  </span>
+            {Object.entries(messageGroups).map(([date, msgs]) => (
+              <div key={date}>
+                <div className="date-divider">
+                  <span>{date}</span>
                 </div>
+                {msgs.map((msg) => (
+                  <div
+                    key={msg.id}
+                    className={`message ${msg.senderId === currentUserId ? 'sent' : 'received'} ${
+                      msg.isTemp ? 'temp-message' : ''
+                    }`}
+                  >
+                    <div className="message-bubble">
+                      <div className="message-content">
+                        <p>{msg.content}</p>
+                      </div>
+                      <div className="message-meta">
+                        <span className="message-time">{formatTime(msg.timestamp)}</span>
+                        {renderMessageStatus(msg)}
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             ))}
             <div ref={messagesEndRef} />
@@ -258,9 +340,10 @@ const ChatComponent = ({ currentUserId, otherUserId, otherUserName, onClose }) =
 
       {/* Input */}
       <form className="chat-input-form" onSubmit={handleSendMessage}>
-        {error && (
+        {error && messages.length > 0 && (
           <div className="error-banner">
-            <span>⚠️ {error}</span>
+            <AlertCircle size={16} />
+            <span>{error}</span>
           </div>
         )}
         <div className="input-container">
@@ -268,7 +351,7 @@ const ChatComponent = ({ currentUserId, otherUserId, otherUserName, onClose }) =
             type="text"
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
-            placeholder={connected ? 'Type a message...' : 'Connecting...'}
+            placeholder={connected ? 'Type a message' : 'Connecting...'}
             disabled={!connected || sending}
             maxLength={500}
             autoComplete="off"
@@ -279,14 +362,13 @@ const ChatComponent = ({ currentUserId, otherUserId, otherUserName, onClose }) =
             className="send-btn"
             aria-label="Send message"
           >
-            {sending ? '⏳' : '➤'}
+            {sending ? (
+              <div className="sending-spinner"></div>
+            ) : (
+              <Send size={20} />
+            )}
           </button>
         </div>
-        {!connected && !loading && (
-          <div className="connection-warning">
-            <span>⚠️ Reconnecting...</span>
-          </div>
-        )}
       </form>
     </div>
   );
