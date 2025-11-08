@@ -1,0 +1,1034 @@
+/* ============================
+   STUDENT NETWORK - PREMIUM PURPLE THEME
+   ============================ */
+
+.student-network-container {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #f8f9ff 0%, #f5f7ff 50%, #faf5ff 100%);
+  padding: 100px 40px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.student-network-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(124, 58, 237, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.network-content {
+  width: 100%;
+  max-width: 1280px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================
+   HEADER SECTION - PURPLE THEME
+   ============================ */
+
+.network-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(139, 92, 246, 0.2) 100%);
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+  border: 2px solid rgba(124, 58, 237, 0.3);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.2);
+}
+
+.badge-icon {
+  width: 32px;
+  height: 32px;
+  color: #7c3aed;
+  stroke-width: 2;
+}
+
+.network-heading {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #6d28d9 0%, #7c3aed 50%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.network-subtext {
+  font-size: 1.25rem;
+  color: #6b7280;
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================
+   NETWORK CONTROLS - PURPLE THEME
+   ============================ */
+
+.network-controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-wrapper {
+  position: relative;
+  flex: 1;
+  min-width: 300px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: #8b5cf6;
+  stroke-width: 2.5;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1.125rem 3.5rem 1.125rem 3.25rem;
+  border: 2px solid rgba(139, 92, 246, 0.3);
+  border-radius: 16px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  font-weight: 500;
+}
+
+.search-input:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15), 0 6px 20px rgba(124, 58, 237, 0.1);
+  background: white;
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+.clear-search {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(139, 92, 246, 0.1);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-search svg {
+  width: 16px;
+  height: 16px;
+  color: #7c3aed;
+  stroke-width: 2.5;
+}
+
+.clear-search:hover {
+  background: rgba(124, 58, 237, 0.2);
+}
+
+.refresh-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.125rem 2rem;
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.refresh-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.refresh-btn:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.refresh-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(124, 58, 237, 0.4);
+}
+
+.refresh-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.refresh-btn .btn-icon {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2.5;
+}
+
+/* ============================
+   ERROR MESSAGE - PURPLE THEME
+   ============================ */
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, rgba(254, 226, 226, 0.9) 0%, rgba(254, 202, 202, 0.9) 100%);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(239, 68, 68, 0.3);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15);
+}
+
+.error-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: 12px;
+}
+
+.error-icon svg {
+  width: 24px;
+  height: 24px;
+  color: #dc2626;
+}
+
+.error-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.error-content p {
+  color: #991b1b;
+  font-weight: 600;
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+.retry-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.retry-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2.5;
+}
+
+.retry-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(220, 38, 38, 0.4);
+}
+
+/* ============================
+   LOADING STATE - PURPLE THEME
+   ============================ */
+
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  gap: 1.5rem;
+}
+
+.loading-spinner {
+  width: 56px;
+  height: 56px;
+  border: 4px solid rgba(124, 58, 237, 0.1);
+  border-top-color: #7c3aed;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  color: #7c3aed;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+/* ============================
+   RESULTS BAR - PURPLE THEME
+   ============================ */
+
+.results-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(124, 58, 237, 0.15);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.08);
+}
+
+.results-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #7c3aed;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.results-count svg {
+  width: 20px;
+  height: 20px;
+  color: #7c3aed;
+}
+
+/* ============================
+   ALUMNI GRID
+   ============================ */
+
+.alumni-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2rem;
+}
+
+/* ============================
+   ALUMNI CARD - COLOR THEMES
+   ============================ */
+
+.alumni-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 2.5rem;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(124, 58, 237, 0.15);
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 1px 3px rgba(124, 58, 237, 0.1),
+    0 10px 40px rgba(124, 58, 237, 0.08);
+}
+
+/* Pending Card - Red Theme */
+.pending-card {
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  box-shadow:
+    0 1px 3px rgba(239, 68, 68, 0.1),
+    0 10px 40px rgba(239, 68, 68, 0.15);
+}
+
+.pending-card:hover {
+  border-color: rgba(239, 68, 68, 0.5);
+  box-shadow:
+    0 4px 6px rgba(239, 68, 68, 0.1),
+    0 20px 60px rgba(239, 68, 68, 0.2);
+}
+
+/* Connected Card - Green Theme */
+.connected-card {
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  box-shadow:
+    0 1px 3px rgba(16, 185, 129, 0.1),
+    0 10px 40px rgba(16, 185, 129, 0.15);
+}
+
+.connected-card:hover {
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow:
+    0 4px 6px rgba(16, 185, 129, 0.1),
+    0 20px 60px rgba(16, 185, 129, 0.2);
+}
+
+/* Default Card Hover */
+.alumni-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: rgba(124, 58, 237, 0.3);
+  box-shadow:
+    0 4px 6px rgba(124, 58, 237, 0.1),
+    0 20px 60px rgba(124, 58, 237, 0.15);
+}
+
+.card-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.card-glow.success {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.05) 100%);
+}
+
+.card-glow.pending {
+  background: linear-gradient(135deg, rgba(248, 113, 113, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%);
+}
+
+.alumni-card:hover .card-glow {
+  opacity: 1;
+}
+
+/* ============================
+   ALUMNI CARD - COLOR THEMES
+   ============================ */
+
+.alumni-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: 24px 24px 0 0;
+  background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%); /* Red gradient */
+}
+
+
+.pending-card::before {
+  background: linear-gradient(90deg, #f87171 0%, #ef4444 100%); /* Red for pending */
+}
+
+.connected-card::before {
+  background: linear-gradient(90deg, #10b981 0%, #059669 100%); /* Green for connected */
+}
+
+/* ============================
+   PROFILE IMAGE CONTAINER - COLOR THEMES
+   ============================ */
+
+.profile-image-container {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 2rem;
+  position: relative;
+}
+
+.image-border {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  padding: 4px;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.image-border.success {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.image-border.pending {
+  background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
+}
+
+.alumni-card:hover .image-border {
+  opacity: 1;
+  inset: -6px;
+}
+
+.profile-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.15);
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #f3f0ff 0%, #e9d5ff 100%);
+}
+
+.alumni-card:hover .profile-image-container img {
+  transform: scale(1.05);
+  box-shadow: 0 12px 32px rgba(124, 58, 237, 0.2);
+}
+
+/* ============================
+   AVATAR PLACEHOLDER STYLES - PURPLE THEME
+   ============================ */
+
+.avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f3f0ff 0%, #e9d5ff 100%);
+  border: 4px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #7c3aed;
+  font-weight: 900;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.15);
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.alumni-card:hover .avatar-placeholder {
+  transform: scale(1.05);
+  box-shadow: 0 12px 32px rgba(124, 58, 237, 0.2);
+}
+
+/* ============================
+   CARD CONTENT - PURPLE THEME
+   ============================ */
+
+.card-content {
+  margin-bottom: 2rem;
+}
+
+.alumni-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #7c3aed;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.alumni-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #6b7280;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.meta-item svg {
+  width: 16px;
+  height: 16px;
+  color: #8b5cf6;
+  opacity: 0.8;
+}
+
+.meta-divider {
+  color: #d1d5db;
+  font-weight: 400;
+}
+
+.alumni-position-tag {
+  display: inline-block;
+  padding: 0.625rem 1.25rem;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(139, 92, 246, 0.15) 100%);
+  color: #7c3aed;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  transition: all 0.3s ease;
+}
+
+.alumni-card:hover .alumni-position-tag {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(139, 92, 246, 0.2) 100%);
+  border-color: rgba(124, 58, 237, 0.3);
+}
+
+.alumni-company {
+  color: #6b7280;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+/* ============================
+   CONNECTION ACTIONS - PURPLE THEME
+   ============================ */
+
+.connection-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.status-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* ============================
+   GREEN CONNECT BUTTON
+   ============================ */
+
+.connect-btn.green-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.connect-btn.green-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.connect-btn.green-btn:hover::before {
+  left: 100%;
+}
+
+.connect-btn.green-btn .btn-icon {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2.5;
+  transition: transform 0.3s ease;
+}
+
+.connect-btn.green-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+}
+
+.connect-btn.green-btn:hover .btn-icon {
+  transform: scale(1.1);
+}
+
+/* ============================
+   PREMIUM VIEW PROFILE BUTTON - PURPLE THEME
+   ============================ */
+
+.view-profile-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(139, 92, 246, 0.15) 100%);
+  color: #7c3aed;
+  border: 2px solid rgba(124, 58, 237, 0.2);
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.1);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.view-profile-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.view-profile-btn:hover::before {
+  left: 100%;
+}
+
+.view-profile-btn .btn-icon {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2.5;
+  transition: transform 0.3s ease;
+}
+
+.view-profile-btn:hover {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(139, 92, 246, 0.2) 100%);
+  border-color: rgba(124, 58, 237, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.2);
+  color: #6d28d9;
+}
+
+.view-profile-btn:hover .btn-icon {
+  transform: scale(1.1);
+}
+
+/* ============================
+   STATUS LABELS - COLOR THEMES
+   ============================ */
+
+.status-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 1rem 2rem;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  border: 2px solid;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.status-label svg {
+  width: 20px;
+  height: 20px;
+}
+
+.status-label.connected {
+  background: linear-gradient(135deg, rgba(209, 250, 229, 0.9) 0%, rgba(167, 243, 208, 0.9) 100%);
+  color: #065f46;
+  border-color: rgba(16, 185, 129, 0.3);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+}
+
+.status-label.pending {
+  background: linear-gradient(135deg, rgba(254, 226, 226, 0.9) 0%, rgba(252, 165, 165, 0.9) 100%);
+  color: #7f1d1d;
+  border-color: rgba(239, 68, 68, 0.3);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15);
+}
+
+/* ============================
+   AUTH WARNING - PURPLE THEME
+   ============================ */
+
+.auth-warning-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 4rem 3rem;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.15);
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+.warning-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(139, 92, 246, 0.15) 100%);
+  border-radius: 50%;
+  border: 3px solid rgba(124, 58, 237, 0.2);
+}
+
+.warning-icon svg {
+  width: 40px;
+  height: 40px;
+  color: #7c3aed;
+  stroke-width: 2;
+}
+
+.auth-warning-card h2 {
+  color: #1f2937;
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.auth-warning-card p {
+  color: #6b7280;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  font-size: 1.0625rem;
+}
+
+/* ============================
+   EMPTY STATE - PURPLE THEME
+   ============================ */
+
+.empty-state-view {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 5rem 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 2px dashed rgba(124, 58, 237, 0.3);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.1);
+}
+
+.empty-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(139, 92, 246, 0.15) 100%);
+  border-radius: 50%;
+  border: 3px solid rgba(124, 58, 237, 0.2);
+}
+
+.empty-icon svg {
+  width: 40px;
+  height: 40px;
+  color: #7c3aed;
+  stroke-width: 2;
+}
+
+.empty-state-view h3 {
+  color: #7c3aed;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.empty-state-view p {
+  color: #6b7280;
+  font-size: 1.0625rem;
+  font-weight: 500;
+}
+
+/* ============================
+   RESPONSIVE DESIGN
+   ============================ */
+
+@media (max-width: 1024px) {
+  .alumni-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.75rem;
+  }
+
+  .network-heading {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .student-network-container {
+    padding: 80px 20px 40px;
+  }
+
+  .network-heading {
+    font-size: 2.5rem;
+  }
+
+  .network-subtext {
+    font-size: 1.125rem;
+  }
+
+  .network-controls {
+    flex-direction: column;
+  }
+
+  .search-wrapper {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .refresh-btn {
+    width: 100%;
+  }
+
+  .alumni-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .alumni-card {
+    padding: 2rem;
+  }
+
+  .error-message {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .error-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .results-bar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .profile-image-container {
+    width: 100px;
+    height: 100px;
+  }
+
+  .avatar-placeholder {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .student-network-container {
+    padding: 70px 16px 30px;
+  }
+
+  .network-heading {
+    font-size: 2rem;
+  }
+
+  .header-badge {
+    width: 56px;
+    height: 56px;
+  }
+
+  .badge-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .alumni-card {
+    padding: 1.75rem;
+  }
+
+  .profile-image-container {
+    width: 80px;
+    height: 80px;
+  }
+
+  .avatar-placeholder {
+    font-size: 1.5rem;
+  }
+
+  .auth-warning-card {
+    padding: 2.5rem 2rem;
+    margin: 1rem;
+  }
+
+  .empty-state-view {
+    padding: 3rem 1.5rem;
+  }
+}
+
+/* ============================
+   ACCESSIBILITY
+   ============================ */
+
+.refresh-btn:focus-visible,
+.connect-btn:focus-visible,
+.view-profile-btn:focus-visible,
+.search-input:focus-visible,
+.retry-btn:focus-visible,
+.clear-search:focus-visible {
+  outline: 3px solid #7c3aed;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

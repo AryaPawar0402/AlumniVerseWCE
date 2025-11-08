@@ -1,0 +1,634 @@
+/* ===========================
+   STUDENT PROFILE VIEW - ELEGANT EDUCATIONAL DESIGN
+   Compact Premium Layout (Read-only Version)
+   =========================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Main Container */
+.student-profile-view-container {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #f8f9ff 0%, #f5f7ff 50%, #ece9ff 100%);
+  position: relative;
+  overflow-y: auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  padding-top: 80px;
+}
+
+/* Decorative Background */
+.student-profile-view-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bg-circle-view {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.12;
+  animation: float-circles 20s ease-in-out infinite;
+}
+
+.bg-circle-view-1 {
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  top: -10%;
+  left: -5%;
+  animation-delay: 0s;
+}
+
+.bg-circle-view-2 {
+  width: 600px;
+  height: 600px;
+  background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+  bottom: -15%;
+  right: -10%;
+  animation-delay: 7s;
+}
+
+.bg-circle-view-3 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+  top: 40%;
+  left: 50%;
+  animation-delay: 14s;
+}
+
+.bg-pattern-view {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(102, 126, 234, 0.04) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+@keyframes float-circles {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+/* Profile Content - Compact */
+.student-profile-view-content {
+  padding: 100px 40px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================
+   PROFILE VIEW HEADER
+   ============================ */
+
+.profile-view-header {
+  margin-bottom: 2rem;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #7f56da;
+  border: 2px solid rgba(127, 86, 218, 0.2);
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  position: relative;
+  z-index: 10;
+}
+
+.back-button:hover {
+  background: white;
+  border-color: rgba(127, 86, 218, 0.4);
+  box-shadow: 0 4px 12px rgba(127, 86, 218, 0.15);
+  transform: translateY(-1px);
+}
+
+.back-icon {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2;
+}
+
+/* ============================
+   STUDENT PROFILE VIEW CARD
+   ============================ */
+
+.student-profile-view-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  overflow: hidden;
+  animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ============================
+   AVATAR SECTION
+   ============================ */
+
+.profile-view-avatar-section {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 40%, #6d28d9 100%);
+  padding: 3rem 2.5rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-view-avatar-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.profile-view-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.profile-view-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-view-basic-info {
+  flex: 1;
+}
+
+.profile-view-name {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.profile-view-email {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profile-view-batch {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  font-weight: 600;
+  margin-right: 0.75rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* View Achievements Button */
+.view-achievements-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.view-achievements-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.view-achievements-btn .btn-icon {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+}
+
+/* ============================
+   PROFILE VIEW DETAILS
+   ============================ */
+
+.profile-view-details {
+  padding: 2.5rem;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.details-section {
+  background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+  padding: 0;
+  border-radius: 16px;
+  border: 1px solid rgba(124, 58, 237, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.details-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #8b5cf6, #7c3aed, #6d28d9);
+}
+
+.details-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 45px rgba(124, 58, 237, 0.1);
+  border-color: rgba(124, 58, 237, 0.12);
+}
+
+.details-section.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Section Headers - Compact Elevated Design */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(135deg, #f9f7ff 0%, #ffffff 100%);
+  border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.section-icon {
+  width: 24px;
+  height: 24px;
+  color: #7c3aed;
+  stroke-width: 2;
+}
+
+/* Elegant Info Items - Compact Clean List */
+.detail-item {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+}
+
+.detail-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  transition: width 0.3s ease;
+}
+
+.detail-item:hover::before {
+  width: 3px;
+}
+
+.detail-item:hover {
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.03) 0%, transparent 100%);
+}
+
+.detail-label {
+  font-weight: 600;
+  color: #6b7280;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 140px;
+}
+
+.detail-label::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  border-radius: 50%;
+}
+
+.detail-value {
+  color: #1f2937;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: right;
+  flex: 1;
+}
+
+/* ============================
+   ABOUT CONTENT
+   ============================ */
+
+.about-content {
+  padding: 1.5rem;
+}
+
+.about-content p {
+  line-height: 1.6;
+  color: #4b5563;
+  margin: 0;
+}
+
+/* ============================
+   SKILLS TAGS
+   ============================ */
+
+.skills-content {
+  padding: 1.5rem;
+}
+
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.skill-tag {
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, rgba(127, 86, 218, 0.1) 0%, rgba(91, 50, 177, 0.15) 100%);
+  color: #5b32b1;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid rgba(127, 86, 218, 0.2);
+}
+
+/* ============================
+   LOADING & ERROR STATES
+   ============================ */
+
+.loading-state,
+.error-state,
+.not-found-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  background: white;
+  border-radius: 20px;
+  border: 1px solid rgba(124, 58, 237, 0.1);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+  margin: 2rem auto;
+  max-width: 500px;
+}
+
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba(124, 58, 237, 0.15);
+  border-top-color: #7c3aed;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-state p,
+.error-state p,
+.not-found-state p {
+  font-size: 1.15rem;
+  color: #7c3aed;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.error-icon,
+.not-found-icon {
+  width: 60px;
+  height: 60px;
+  color: #ef4444;
+  margin-bottom: 1.25rem;
+  stroke-width: 1.5;
+}
+
+.back-btn {
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: white;
+  border: none;
+  padding: 0.875rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1.25rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(124, 58, 237, 0.4);
+}
+
+/* ============================
+   RESPONSIVE DESIGN
+   ============================ */
+
+@media (max-width: 1024px) {
+  .details-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .student-profile-view-content {
+    padding: 80px 20px 40px;
+  }
+
+  .profile-view-avatar-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .profile-view-name {
+    font-size: 2rem;
+  }
+
+  .profile-view-avatar {
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+  }
+
+  .profile-view-details {
+    padding: 1.5rem;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .details-section {
+    border-radius: 12px;
+  }
+
+  .section-title {
+    padding: 1rem 1.25rem;
+    font-size: 1.125rem;
+  }
+
+  .detail-item {
+    padding: 0.875rem 1.25rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .detail-label {
+    min-width: auto;
+  }
+
+  .detail-value {
+    text-align: left;
+    width: 100%;
+  }
+
+  .view-achievements-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .student-profile-view-content {
+    padding: 70px 16px 30px;
+  }
+
+  .profile-view-name {
+    font-size: 1.75rem;
+  }
+
+  .profile-view-avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 1.75rem;
+  }
+
+  .profile-view-batch {
+    display: block;
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .back-button {
+    width: auto;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Premium Hover Effects */
+.student-profile-view-card:hover {
+  box-shadow: 0 25px 70px rgba(124, 58, 237, 0.15);
+}
+
+/* Smooth Transitions */
+.student-profile-view-container * {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus States for Accessibility */
+.back-button:focus,
+.back-btn:focus,
+.view-achievements-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.3);
+}

@@ -1,0 +1,120 @@
+.chat-floating-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.chat-floating-button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(124, 58, 237, 0.4);
+}
+
+.chat-floating-button:active {
+  transform: translateY(0) scale(0.95);
+}
+
+.unread-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #ef4444;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+}
+
+.chat-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  padding: 1rem;
+}
+
+.chat-modal {
+  width: 100%;
+  max-width: 400px;
+  max-height: 90vh;
+  animation: modal-appear 0.3s ease;
+}
+
+@keyframes modal-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .chat-floating-button {
+    bottom: 1rem;
+    right: 1rem;
+    width: 56px;
+    height: 56px;
+  }
+
+  .chat-modal {
+    max-width: calc(100vw - 2rem);
+    max-height: calc(100vh - 2rem);
+  }
+
+  .chat-component {
+    height: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chat-floating-button {
+    width: 52px;
+    height: 52px;
+  }
+
+  .chat-floating-button svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .chat-component {
+    height: 450px;
+  }
+
+  .chat-header {
+    padding: 1rem 1.25rem;
+  }
+
+  .chat-messages {
+    padding: 1rem;
+  }
+
+  .chat-input-form {
+    padding: 1rem;
+  }
+}

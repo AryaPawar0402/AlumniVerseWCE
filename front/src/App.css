@@ -1,0 +1,110 @@
+/* Global resets */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  height: 100%;
+  color: #333;
+}
+
+/* Container */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Card */
+.auth-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.15);
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Title */
+.auth-title {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  color: #1e3c72;
+}
+
+/* Form rows */
+.auth-form .form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+/* Inputs & select */
+.auth-form input, .auth-form select {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.auth-form input:focus, .auth-form select:focus {
+  border-color: #1e3c72;
+  box-shadow: 0 0 5px rgba(30, 60, 114, 0.5);
+}
+
+/* Button */
+.auth-btn {
+  width: 100%;
+  padding: 12px;
+  background: #1e3c72;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.auth-btn:hover {
+  background: #2a5298;
+}
+
+/* Toggle links */
+.toggle-text {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.95rem;
+}
+
+.toggle-link {
+  color: #1e3c72;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Messages */
+.error-text {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.success-text {
+  color: green;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Role select special style */
+.role-select {
+  background: #f0f4ff;
+}

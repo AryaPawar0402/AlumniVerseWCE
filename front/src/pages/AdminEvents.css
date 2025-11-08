@@ -1,0 +1,504 @@
+/* ===========================
+   ADMIN EVENTS - PREMIUM VIOLET THEME
+   Consistent Educational Design - Matching Alumni Profile
+   =========================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Main Container */
+.admin-events-container {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 50%, #faf5ff 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  padding-top: 80px;
+}
+
+/* Decorative Background */
+.admin-events-floating-circles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.admin-events-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.12;
+  animation: float-circles 20s ease-in-out infinite;
+}
+
+.admin-events-circle-1 {
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  top: -10%;
+  left: -5%;
+  animation-delay: 0s;
+}
+
+.admin-events-circle-2 {
+  width: 600px;
+  height: 600px;
+  background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+  bottom: -15%;
+  right: -10%;
+  animation-delay: 7s;
+}
+
+.admin-events-circle-3 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+  top: 40%;
+  left: 50%;
+  animation-delay: 14s;
+}
+
+@keyframes float-circles {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+/* Content Container */
+.admin-events-content {
+  position: relative;
+  z-index: 10;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem 2rem;
+}
+
+/* Main Card */
+.admin-events-card {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 3rem;
+  max-width: 900px;
+  width: 100%;
+  box-shadow:
+    0 25px 60px rgba(124, 58, 237, 0.15),
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(124, 58, 237, 0.15);
+  animation: fadeInUp 0.8s ease;
+  margin-bottom: 3rem;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Card Header */
+.admin-events-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid rgba(102, 126, 234, 0.1);
+}
+
+.admin-events-header-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.admin-events-header h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 0.8rem 0;
+}
+
+.admin-events-header p {
+  font-size: 1.05rem;
+  color: #718096;
+  margin: 0;
+}
+
+/* Message Display */
+.admin-events-message {
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  text-align: center;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.admin-events-message.success {
+  background: rgba(72, 187, 120, 0.1);
+  color: #22543d;
+  border: 2px solid rgba(72, 187, 120, 0.3);
+}
+
+.admin-events-message.error {
+  background: rgba(245, 101, 101, 0.1);
+  color: #742a2a;
+  border: 2px solid rgba(245, 101, 101, 0.3);
+}
+
+/* Form Sections */
+.admin-events-section {
+  background: linear-gradient(135deg, #f3f0ff 0%, #ede9fe 100%);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  box-shadow:
+    0 15px 40px rgba(124, 58, 237, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.admin-events-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.admin-events-section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(124, 58, 237, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.admin-events-section-header::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, #8b5cf6, transparent);
+}
+
+.admin-events-section-icon {
+  font-size: 1.5rem;
+}
+
+.admin-events-section-header h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #5b21b6;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* Input Groups */
+.admin-events-input-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.admin-events-input-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #7c3aed;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.admin-events-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.admin-events-input-icon {
+  position: absolute;
+  left: 1rem;
+  font-size: 1.2rem;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.admin-events-input-wrapper input,
+.admin-events-input-wrapper textarea {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 2px solid rgba(124, 58, 237, 0.25);
+  border-radius: 14px;
+  font-size: 1rem;
+  background: white;
+  color: #2d3748;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  box-sizing: border-box;
+  font-weight: 600;
+  box-shadow:
+    inset 0 1px 5px rgba(0, 0, 0, 0.05),
+    0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.admin-events-input-wrapper textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.6;
+}
+
+.admin-events-input-wrapper input:focus,
+.admin-events-input-wrapper textarea:focus {
+  outline: none;
+  border-color: #7c3aed;
+  background: white;
+  box-shadow:
+    0 0 0 4px rgba(124, 58, 237, 0.1),
+    inset 0 1px 5px rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+}
+
+.admin-events-input-wrapper input::placeholder,
+.admin-events-input-wrapper textarea::placeholder {
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+/* Form Row */
+.admin-events-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Hint Text */
+.admin-events-hint {
+  font-size: 0.85rem;
+  color: #718096;
+  margin-top: 0.8rem;
+  padding-left: 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* File Upload */
+.admin-events-file-upload {
+  margin-top: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.admin-events-upload-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  border: 2px dashed rgba(124, 58, 237, 0.3);
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.admin-events-upload-area:hover {
+  border-color: #7c3aed;
+  background: rgba(124, 58, 237, 0.02);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.15);
+}
+
+.admin-events-upload-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #7c3aed;
+}
+
+.admin-events-upload-text p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0 0 0.3rem 0;
+}
+
+.admin-events-upload-text span {
+  font-size: 0.9rem;
+  color: #718096;
+}
+
+/* Image Preview */
+.admin-events-image-preview {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid rgba(124, 58, 237, 0.2);
+}
+
+.admin-events-image-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.admin-events-image-preview:hover img {
+  transform: scale(1.03);
+}
+
+.admin-events-remove-image {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: linear-gradient(135deg, #f87171, #ef4444);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 0.7rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.admin-events-remove-image:hover {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+}
+
+/* Submit Button */
+.admin-events-submit-btn {
+  width: 100%;
+  padding: 1.2rem 2rem;
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 10px 25px rgba(139, 92, 246, 0.3),
+    0 3px 0 rgba(109, 40, 217, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.admin-events-submit-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  transform: translateY(-3px);
+  box-shadow:
+    0 15px 35px rgba(139, 92, 246, 0.4),
+    0 5px 0 rgba(91, 33, 182, 0.2);
+}
+
+.admin-events-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.admin-events-btn-icon {
+  font-size: 1.3rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-events-content {
+    padding: 2rem 1rem;
+  }
+
+  .admin-events-card {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+  }
+
+  .admin-events-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .admin-events-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .admin-events-section {
+    padding: 1.5rem;
+  }
+
+  .admin-events-circle {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-events-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .admin-events-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .admin-events-header-icon {
+    font-size: 2.5rem;
+  }
+
+  .admin-events-upload-area {
+    padding: 2rem 1rem;
+  }
+}
